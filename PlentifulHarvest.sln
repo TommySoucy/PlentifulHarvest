@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlentifulHarvest", "PlentifulHarvest.csproj", "{144C051F-D407-464F-93DF-5D180FAD006B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{144C051F-D407-464F-93DF-5D180FAD006B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144C051F-D407-464F-93DF-5D180FAD006B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144C051F-D407-464F-93DF-5D180FAD006B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144C051F-D407-464F-93DF-5D180FAD006B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3069D03F-61C5-4E3C-911D-D2178582F81D}
+	EndGlobalSection
+EndGlobal
