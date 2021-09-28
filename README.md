@@ -8,8 +8,9 @@ An unlimited amount of potions can be used at once.
 ## Installation
 
 1. Download latest from [releases](https://github.com/TommySoucy/PlentifulHarvest/releases)
-2. Download the latest MelonLoader installer from [here](https://github.com/LavaGang/MelonLoader/releases) and install the latest version into your Potion Craft installation
-3. Put all files from the .zip into the Mods folder created by MelonLoader
+2. Download the latest BepinEx package corresponding to your operating system from [here](https://github.com/BepInEx/BepInEx/releases) and extract all files from the zip into your Potion Craft installation
+3. Run the game once for BepinEx to generate its file system
+4. Put all files from the .zip of this mod into BepinEx/Plugins folder
 
 ## Config
 
@@ -38,4 +39,4 @@ There are some settings available in the provided config file described below:
 ## Used libraries
 
 - Harmony
-- MelonLoader
+- BepinEx
