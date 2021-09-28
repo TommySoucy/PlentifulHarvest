@@ -31,11 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\RgXlnX47ShfX\BepInEx\core\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\RgXlnX47ShfX\Potion Craft_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="MelonLoader">
-      <HintPath>..\..\..\RgXlnX47ShfX\MelonLoader\MelonLoader.dll</HintPath>
+    <Reference Include="BepInEx">
+      <HintPath>..\..\..\RgXlnX47ShfX\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,6 +48,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\..\..\RgXlnX47ShfX\Potion Craft_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>

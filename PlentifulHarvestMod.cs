@@ -1,25 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using HarmonyLib;
-using MelonLoader;
-using ObjectBased;
-using Books;
 using UnityEngine;
 using ObjectBased.Garden.GrowingSpot;
-using ObjectBased.UIElements.FloatingText;
-using TMPAtlasGenerationSystem;
-using TutorialSystem;
 using ObjectBased.InteractiveItem;
 using System.Reflection;
+using BepInEx;
 
 namespace PlentifulHarvest
 {
-    public class PlentifulHarvestMod : MelonMod
+    [BepInPlugin(pluginGuid, pluginName, pluginVersion)]
+    public class PlentifulHarvestMod : BaseUnityPlugin
     {
+        // BepinEx
+        public const string pluginGuid = "vip.TommySoucy.PlentifulHarvest";
+        public const string pluginName = "Plentiful Harvest";
+        public const string pluginVersion = "1.1.0";
+
         // Config settings
         public static int harvestIngredientMultiplier = 1;
         public static int harvestExperienceMutliplier = 1;
@@ -51,7 +49,7 @@ namespace PlentifulHarvest
         public static List<PotionItem> harvestPotions;
         public static int harvestCount = 0;
 
-        public override void OnApplicationStart()
+        public void Start()
         {
             Init();
 
@@ -67,7 +65,7 @@ namespace PlentifulHarvest
             LoadConfig();
         }
 
-        public override void OnUpdate()
+        public void Update()
         {
             // Process growth timers
             for(int i=0; i < growthTimers.Count; ++i)
@@ -161,10 +159,10 @@ namespace PlentifulHarvest
                     }
                 }
 
-                MelonLogger.Msg("Configs loaded");
+                Logger.LogInfo("Configs loaded");
             }
-            catch (FileNotFoundException ex) { MelonLogger.Msg("Couldn't find PlentifulHarvestConfig.txt, using default settings instead. Error: " + ex.Message); }
-            catch (Exception ex) { MelonLogger.Msg("Couldn't read PlentifulHarvestConfig.txt, using default settings instead. Error: " + ex.Message); }
+            catch (FileNotFoundException ex) { Logger.LogInfo("Couldn't find PlentifulHarvestConfig.txt, using default settings instead. Error: " + ex.Message); }
+            catch (Exception ex) { Logger.LogInfo("Couldn't read PlentifulHarvestConfig.txt, using default settings instead. Error: " + ex.Message); }
         }
 
         private void DoPatching()
