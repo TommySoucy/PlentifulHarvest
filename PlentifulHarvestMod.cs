@@ -275,7 +275,7 @@ namespace PlentifulHarvest
             {
                 multiplier = PlentifulHarvestMod.rubedoCountMultiplier;
             }
-            else if (__instance.inventoryItem.name.Equals("Philosopher's Stone"))
+            else if (__instance.inventoryItem.name.Equals("PhilosophersStone"))
             {
                 multiplier = PlentifulHarvestMod.philosopherStoneCountMultiplier;
             }
