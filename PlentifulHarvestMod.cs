@@ -96,7 +96,7 @@ namespace PlentifulHarvest
         {
             try
             {
-                string[] lines = File.ReadAllLines("Mods/PlentifulHarvestConfig.txt");
+                string[] lines = File.ReadAllLines("BepinEx/Plugins/PlentifulHarvestConfig.txt");
 
                 foreach (string line in lines)
                 {
