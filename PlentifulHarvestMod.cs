@@ -7,6 +7,7 @@ using ObjectBased.Garden.GrowingSpot;
 using ObjectBased.InteractiveItem;
 using System.Reflection;
 using BepInEx;
+using FinishLegendarySubstanceMenu;
 
 namespace PlentifulHarvest
 {
@@ -48,6 +49,7 @@ namespace PlentifulHarvest
         private static List<GrowthTimer> growthTimers;
         public static List<PotionItem> harvestPotions;
         public static int harvestCount = 0;
+        public static bool alchemicalMachineProductFinish = false;
 
         public void Start()
         {
@@ -181,6 +183,12 @@ namespace PlentifulHarvest
 
             harmony.Patch(spotPlantIngredientAmountPatchOriginal, null, new HarmonyMethod(spotPlantIngredientAmountPatchPostfix));
 
+            // AlchemyMachineFinishProductPatch
+            var alchemyMachineFinishProductPatchOriginal = typeof(FinishProductButton).GetMethod("OnButtonReleasedPointerInside");
+            var alchemyMachineFinishProductPatchPrefix = typeof(AlchemyMachineFinishProductPatch).GetMethod("Prefix", BindingFlags.NonPublic | BindingFlags.Static);
+
+            harmony.Patch(alchemyMachineFinishProductPatchOriginal, new HarmonyMethod(alchemyMachineFinishProductPatchPrefix));
+
             // AlchemyMachineProductCountPatch
             var alchemyMachineProductCountPatchOriginal = typeof(AlchemyMachineProductItem).GetMethod("PutInInventory");
             var alchemyMachineProductCountPatchPrefix = typeof(AlchemyMachineProductCountPatch).GetMethod("Prefix", BindingFlags.NonPublic | BindingFlags.Static);
@@ -252,11 +260,30 @@ namespace PlentifulHarvest
         }
     }
 
+
+    class AlchemyMachineFinishProductPatch
+    {
+        // This prefix simply sets a flag in the mod class so that in AlchemyMachineProductCountPatch we can know where PutInventory was called from
+        static void Prefix()
+        {
+            PlentifulHarvestMod.alchemicalMachineProductFinish = true;
+        }
+    }
+
     class AlchemyMachineProductCountPatch
     {
         // This prefix replaces the original function that gets called when you finish an alchemy machine product entirely
         static bool Prefix(AlchemyMachineProductItem __instance, ref Inventory ___inventory, ref ItemsPanel ___itemsPanel)
         {
+            if (PlentifulHarvestMod.alchemicalMachineProductFinish)
+            {
+                PlentifulHarvestMod.alchemicalMachineProductFinish = false;
+            }
+            else
+            {
+                return true;
+            }
+
             int multiplier = 1;
             LegendarySaltPile legendarySaltPile = __instance.inventoryItem as LegendarySaltPile;
             if (__instance.inventoryItem.name.Equals("Nigredo"))
