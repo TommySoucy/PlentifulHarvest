@@ -34,7 +34,7 @@ There are some settings available in the provided config file described below:
 2. Open solution
 3. Ensure all references are there
 4. Build
-5. Save module. DLL is now ready for install as explained in **Installation** section
+5. DLL is now ready for install as explained in **Installation** section
 
 ## Used libraries
 
