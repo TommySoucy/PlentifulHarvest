@@ -23,7 +23,7 @@ namespace PlentifulHarvest {
         // BepinEx
         public const string pluginGuid = "vip.TommySoucy.PlentifulHarvest";
         public const string pluginName = "Plentiful Harvest";
-        public const string pluginVersion = "1.1.0";
+        public const string pluginVersion = "2.0.0";
 
         // Config settings
         public static int harvestIngredientMultiplier = 1;
@@ -297,9 +297,9 @@ namespace PlentifulHarvest {
                             if (potion.Effects[i] == null) {
                                 continue;
                             }
-                            if (potion.Effects[i].name.Equals("Growth", StringComparison.OrdinalIgnoreCase)) {
+                            if (potion.Effects[i].name.ToLower().Contains("growth")) {
                                 growthCount++;
-                            } else if (potion.Effects[i].name.Equals("Crop", StringComparison.OrdinalIgnoreCase)) {
+                            } else if (potion.Effects[i].name.ToLower().Contains("crop")) {
                                 harvestCount++;
                             }
                         }
