@@ -339,9 +339,9 @@ namespace PlentifulHarvest {
                             if (potion.Effects[i] == null) {
                                 continue;
                             }
-                            if (potion.Effects[i].name.Equals("Growth", StringComparison.OrdinalIgnoreCase)) {
+                            if (potion.Effects[i].name.ToLower().Contains("growth")) {
                                 hasGrowth = true;
-                            } else if (potion.Effects[i].name.Equals("Crop", StringComparison.OrdinalIgnoreCase)) {
+                            } else if (potion.Effects[i].name.ToLower().Contains("crop")) {
                                 hasHarvest = true;
                                 harvestCount++;
                             }
